@@ -4,7 +4,7 @@
 
 .react-calendar {
   max-width: 450px;
-  background: white;
+  background: rgb(250, 230, 252);
   border-radius: 15px;
   font-family: Manrope, Helvetica, sans-serif;
   line-height: 1.125em;
@@ -93,4 +93,69 @@
 }
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: rgb(238 242 255);
+}
+.custom-bg-color {
+  background-color: #faeee3;
+}
+
+.custom-text-color {
+  color: #8b5d40;
+}
+.custom-text-color-n {
+  color: #b47d4d;
+}
+
+.custom-hover-bg-color:hover {
+  background-color: #e5d1be ;
+}
+
+.custom-focus-ring-color:focus {
+  box-shadow: #8b5d40;
+}
+
+.custom-hover-color:hover {
+  color: #dfb5c0; 
+}
+.custom-aaaa:hover {
+  color: #c4af9b !important;
+}
+
+
+.custom-aroa {
+  background-color: #ce9ca1; 
+}
+.custom-link {
+  background-color: #b47d4d; /* Color de fondo inicial del icono */
+  transition: background-color 0.4s ease; /* Transición de 0.3 segundos con suavizado */
+}
+.custom-icon-link {
+  background-color: #ce9ca1; /* Color de fondo inicial del icono */
+  transition: background-color 0.4s ease; /* Transición de 0.3 segundos con suavizado */
+}
+
+.custom-icon-link:hover {
+  background-color: #f6deae; /* Color de fondo al hacer hover */
+}
+.custom-icon-link-new {
+  background-color: #8b5d40; /* Color de fondo inicial del icono */
+  transition: background-color 0.4s ease; /* Transición de 0.3 segundos con suavizado */
+}
+
+.custom-icon-link-new:hover {
+  background-color: #ebb687 !important;
+}
+
+.custom-select {
+  background-color: #e3b1c8d5; /* Color de fondo */
+  color: #ffffff; /* Color de texto */
+}
+
+.custom-select option {
+  background-color: #e3b1c8d5; /* Color de fondo de las opciones */
+  color: #ffffff; /* Color de texto de las opciones */
+}
+
+.custom-select:focus {
+  border-color: #ffffff; /* Color del borde cuando el cuadro de selección está enfocado */
+  outline: none; /* Quita el resplandor del enfoque */
 }

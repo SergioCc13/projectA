@@ -60,10 +60,15 @@ function ReservationForm() {
 	};
 
 	const getAvailableHours = () => {
-		const currentHour = new Date().getHours() + 1;
-		const availableHours = Array.from({ length: 12 }, (_, i) => i + 12).filter(hour => hour > currentHour);
-		return availableHours;
+		const availableHours = Array.from({ length: 24 }, (_, i) => i); // Genera un array con las 24 horas del día
+		const currentHour = new Date().getHours() + 1; // Obtiene la hora actual y suma una hora
+		
+		// Filtra las horas a partir de la hora actual más una hora
+		const filteredHours = availableHours.filter(hour => hour >= currentHour);
+	
+		return filteredHours;
 	};
+	
 
 	return (
 		<div className="mt-12 mb-14">
@@ -80,27 +85,28 @@ function ReservationForm() {
 					</div>
 
 					<div className="flex flex-col">
-						<label htmlFor="time" className="mb-1 text font-medium text-gray-500">Hora:</label>
-						<select {...register('time')} id="time"
-							className="mb-2 bg-gray-100 border border-gray-300 text-gray-500 text rounded-lg focus:ring-green-500 focus:border-green-500 w-96 md:w-64 p-2.5" value={selectedTime} onChange={(e) => setSelectedTime(e.target.value)}>
-							<option value="">Seleccione</option>
-							{getAvailableHours().map(hour => (
-								<option key={hour} value={`${hour}:00`}>
-									{`${hour}:00`}
-								</option>
-							))}
-						</select>
+					<label htmlFor="time" className="mb-1 text font-medium text-gray-500">Hora:</label>
+					<select {...register('time')} id="time"
+						className="mb-2 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 w-96 md:w-64 p-2.5 custom-select" value={selectedTime} onChange={(e) => setSelectedTime(e.target.value)}>
+						<option value="">Seleccione</option>
+						{getAvailableHours().map(hour => (
+							<option key={hour} value={`${hour}:00`}>
+								{`${hour}:00`}
+							</option>
+						))}
+					</select>
 
 						<label htmlFor="numPersons" className="mb-1 text font-medium text-gray-500">Número de personas:</label>
 						<select {...register('numPersons')} id="numPersons"
-							className="mb-2 bg-gray-100 border border-gray-300 text-gray-500 text rounded-lg focus:ring-green-500 focus:border-green-500 w-96 md:w-64 p-2.5" value={selectedNumPersonas} onChange={(e) => setSelectedNumPersonas(e.target.value)}>
-							<option value="">Seleccione</option>
-							{Array.from({ length: 10 }, (_, i) => i + 1).map(num => (
+							className="mb-2 border border-gray-300 rounded-lg w-96 md:w-64 p-2.5 custom-select">
+							<option value="">Elije</option>
+							{Array.from({ length: 5 }, (_, i) => i + 1).map(num => (
 								<option key={num} value={num}>
 									{num}
 								</option>
 							))}
 						</select>
+
 
 						{!showPersonalInfo && (
 							<button
@@ -108,7 +114,7 @@ function ReservationForm() {
 								onClick={handleContinue}
 								className={`mt-3 py-3 rounded text-center transition font-medium ${!date || !selectedTime || !selectedNumPersonas
 									? "bg-gray-500 text-white cursor-not-allowed"
-									: "bg-green-500 text-white"
+									: "custom-icon-link text-white"
 									}`}
 								disabled={!date || !selectedTime || !selectedNumPersonas}>
 								Continuar

@@ -38,27 +38,25 @@ const ContactForm: React.FC = () => {
                 <div className="grid grid-cols-2 gap-4">
                     <div className="mb-3">
                         <label htmlFor="name">Nombre:</label>
-                        <input className="mt-1 block w-full rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-green-300" id="name" {...register("name", { required: "Este campo es obligatorio" })} />
+                        <input className="mt-1 block w-full rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 custom-text-color " id="name" {...register("name", { required: "Este campo es obligatorio" })} />
                         {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
                     </div>
 
                     <div className="mb-3">
                         <label htmlFor="email">Gmail:</label>
-                        <input className="mt-1 block w-full rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-green-300" id="email" type="email" {...register("email", { required: "Este campo es obligatorio" })} />
+                        <input className="mt-1 block w-full rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 " id="email" type="email" {...register("email", { required: "Este campo es obligatorio" })} />
                         {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
                     </div>
                 </div>
 
                 <div className="mb-3">
                     <label htmlFor="contactReason">Motivo de contacto:</label>
-                    <select className="mt-1 block w-full rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-green-300"
+                    <select className="mt-1 block w-full rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500"
                         id="contactReason" {...register("contactReason", { required: "Este campo es obligatorio" })}>
                         <option value="">Selecciona un motivo</option>
-                        <option value="reserva">Reserva</option>
-                        <option value="consulta">Consulta</option>
-                        <option value="sugerencia">Sugerencia</option>
-                        <option value="reclamacion">Reclamación</option>
-                        <option value="katering">katering</option>
+                            <option value="consulta">Consulta</option>
+                 <option value="reserva">Reserva</option>
+                           <option value="sugerencia">Sugerencia</option>
                         <option value="otros">Otros</option>
                     </select>
                     {errors.contactReason && <p className="text-red-500 text-sm">{errors.contactReason.message}</p>}
@@ -67,7 +65,7 @@ const ContactForm: React.FC = () => {
                 <div className="mb-3">
                     <label htmlFor="message">Mensaje:</label>
                     <textarea
-                        className="mt-1 block w-full rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500 focus:border-green-300"
+                        className="mt-1 block w-full rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 outline-none transition-all placeholder:text-gray-500"
                         id="message"
                         rows={4}
                         {...register("message")}></textarea>
@@ -79,14 +77,14 @@ const ContactForm: React.FC = () => {
                             className="mr-2"
                             id="privacyPolicy"
                             type="checkbox" {...register("privacyPolicy", { required: "Debes aceptar la política de protección de datos" })} />
-                        He leído y acepto la política de protección de datos de la web
+                        He leído y acepto la política de protección de datos de la web.
                     </label>
                     {errors.privacyPolicy && <p className="text-red-500 text-sm">{errors.privacyPolicy.message}</p>}
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 flex justify-center">
                     <button
-                        className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-5 py-2.5 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+                        className="inline-flex justify-center rounded-md border border-transparent custom-bg-color px-5 py-2.5 text-sm font-medium custom-text-color custom-hover-bg-color custom-focus-ring-color focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
                         type="submit">Enviar
                     </button>
                 </div>

@@ -12,7 +12,7 @@ export default function App({
   return (
     <SessionProvider session={session}>
       <Head>
-        <title>Bamboo Express</title>
+        <title>Spicy Nails</title>
         <meta name="description" content="Bamboo Express" />
         <link rel="icon" href="/ico/ico.png" />
       </Head>
